@@ -12,8 +12,7 @@ interface OpenRouterResponse {
 export class AiService {
   private readonly OPENROUTER_URL =
     'https://openrouter.ai/api/v1/chat/completions';
-  private readonly API_KEY =
-    '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';
+  private readonly API_KEY = '';
 
   async generateTasksFromPrompt(prompt: string): Promise<{ title: string }[]> {
     const response = await fetch(this.OPENROUTER_URL, {
