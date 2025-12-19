@@ -1,98 +1,249 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Backend do Sistema de Tarefas (Todo App)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é um sistema backend desenvolvido em Node.js com o framework NestJS para gerenciamento de tarefas (to-do list). Ele inclui funcionalidades de cadastro, listagem, atualização e exclusão de tarefas, além de integração com inteligência artificial para geração automática de tarefas baseadas em prompts.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Recursos
 
-## Description
+- Cadastro de tarefas
+- Listagem de tarefas
+- Atualização de status das tarefas
+- Exclusão de tarefas
+- Integração com IA para geração de tarefas
+- Banco de dados SQLite embutido
+- Configuração através de variáveis de ambiente
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tecnologias Utilizadas
 
-## Project setup
+- [NestJS](https://nestjs.com/) - Framework Node.js progressivo
+- [TypeScript](https://www.typescriptlang.org/) - Superset do JavaScript com tipagem estática
+- [TypeORM](https://typeorm.io/) - ORM para manipulação do banco de dados
+- [SQLite](https://www.sqlite.org/index.html) - Banco de dados relacional leve
+- [OpenRouter](https://openrouter.ai/) - Plataforma para integração com modelos de IA
 
-```bash
-$ npm install
-```
+## 📋 Pré-requisitos
 
-## Compile and run the project
+Antes de começar, você precisa ter instalado em seu sistema:
 
-```bash
-# development
-$ npm run start
+- [Node.js](https://nodejs.org/) (versão 16.x ou superior)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-# watch mode
-$ npm run start:dev
+## ⚙️ Instalação e Configuração
 
-# production mode
-$ npm run start:prod
-```
+### 1. Clone o repositório (se aplicável)
 
-## Run tests
+Se você estiver clonando este projeto de um repositório remoto:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone <URL_DO_REPOSITORIO>
+cd todo-backend
 ```
 
-## Deployment
+### 2. Instale as dependências
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Execute o comando abaixo para instalar todas as dependências necessárias:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Configure as variáveis de ambiente
 
-## Resources
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis (veja o exemplo em `.env.example`):
 
-Check out a few resources that may come in handy when working with NestJS:
+```env
+OPEN_ROUTER_API_KEY=sua_chave_da_api_openrouter
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Para obter sua chave da API do OpenRouter:
 
-## Support
+1. Acesse [https://openrouter.ai/](https://openrouter.ai/)
+2. Crie uma conta ou faça login
+3. Vá até a seção de API Keys
+4. Copie sua chave de API e substitua `sua_chave_da_api_openrouter` no arquivo `.env`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 4. Compilação (opcional, mas recomendado para produção)
 
-## Stay in touch
+Para compilar o projeto TypeScript em JavaScript:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+npm run build
+```
 
-## License
+## ▶️ Execução do Projeto
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Modo de Desenvolvimento
+
+Para executar o projeto em modo de desenvolvimento (com recarregamento automático ao fazer alterações):
+
+```bash
+npm run start:dev
+```
+
+### Modo de Produção
+
+Para executar o projeto em modo de produção (após compilação):
+
+```bash
+npm run start:prod
+```
+
+### Modo de Depuração
+
+Para executar o projeto em modo de depuração (com suporte ao debug do Node.js):
+
+```bash
+npm run start:debug
+```
+
+### Execução Simples
+
+Para executar o projeto em modo padrão (sem recarregamento automático):
+
+```bash
+npm run start
+```
+
+## 🧪 Testes
+
+O projeto inclui testes automatizados. Para executá-los:
+
+### Testes Unitários
+
+```bash
+npm run test
+```
+
+### Testes Unitários em Modo Watch
+
+```bash
+npm run test:watch
+```
+
+### Cobertura de Testes
+
+```bash
+npm run test:cov
+```
+
+### Testes End-to-End (E2E)
+
+```bash
+npm run test:e2e
+```
+
+### Testes End-to-End em Modo Debug
+
+```bash
+npm run test:debug
+```
+
+## 📁 Estrutura de Pastas
+
+```
+todo-backend/
+├── src/
+│   ├── app.module.ts          # Módulo principal da aplicação
+│   ├── app.controller.ts      # Controlador principal
+│   ├── app.service.ts         # Serviço principal
+│   ├── main.ts                # Arquivo de inicialização
+│   ├── ai/
+│   │   └── ai.service.ts      # Serviço de integração com IA
+│   └── tasks/
+│       ├── tasks.module.ts    # Módulo de tarefas
+│       ├── tasks.controller.ts # Controlador de tarefas
+│       ├── tasks.service.ts   # Serviço de tarefas
+│       └── entities/
+│           └── task.entity.ts # Entidade de tarefa
+├── test/                      # Testes E2E
+├── .env.example               # Exemplo de arquivo .env
+├── .gitignore
+├── nest-cli.json              # Configurações do CLI do NestJS
+├── package.json
+├── tsconfig.json              # Configurações do TypeScript
+└── README.md
+```
+
+## 🔧 Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
+
+- `npm run build` - Compila o projeto TypeScript para JavaScript
+- `npm run format` - Formata os arquivos TypeScript usando Prettier
+- `npm run start` - Inicia a aplicação em modo padrão
+- `npm run start:dev` - Inicia a aplicação em modo desenvolvimento (watch mode)
+- `npm run start:debug` - Inicia a aplicação em modo debug
+- `npm run start:prod` - Inicia a aplicação em modo produção
+- `npm run lint` - Executa o ESLint para corrigir problemas de código
+- `npm run test` - Executa os testes unitários
+- `npm run test:watch` - Executa os testes unitários em modo watch
+- `npm run test:cov` - Executa os testes e mostra a cobertura
+- `npm run test:debug` - Executa os testes em modo debug
+- `npm run test:e2e` - Executa os testes end-to-end
+
+## 🗄️ Banco de Dados
+
+O projeto utiliza SQLite como banco de dados, que é armazenado em um arquivo chamado `database.sqlite` na raiz do projeto. A configuração do banco de dados está localizada no arquivo `src/app.module.ts`.
+
+> ⚠️ **Atenção**: A opção `synchronize: true` está ativada para fins de desenvolvimento, o que significa que o TypeORM irá automaticamente criar/atualizar as tabelas do banco de dados conforme as entidades forem modificadas. Em ambiente de produção, esta opção deve ser desativada.
+
+## 🤖 Integração com Inteligência Artificial
+
+O sistema permite a geração de tarefas automaticamente através de prompts de texto. A integração é feita com o OpenRouter, que fornece acesso a diversos modelos de linguagem de IA.
+
+Para usar essa funcionalidade:
+
+1. Certifique-se de ter configurado a variável `OPEN_ROUTER_API_KEY`
+2. Faça uma requisição POST para o endpoint correspondente passando um prompt descritivo
+
+## 🚀 Deploy
+
+Quando você estiver pronto para implantar sua aplicação NestJS em produção, existem algumas etapas importantes que pode seguir para garantir que ela seja executada da forma mais eficiente possível.
+
+### Deploy em Produção
+
+1. Compile o projeto:
+
+   ```bash
+   npm run build
+   ```
+
+2. Execute em modo produção:
+   ```bash
+   npm run start:prod
+   ```
+
+### Deploy na Nuvem
+
+Se você estiver procurando por uma plataforma baseada em nuvem para implantar sua aplicação NestJS, confira o [Mau](https://mau.nestjs.com), nossa plataforma oficial para implantação de aplicações NestJS na AWS. O Mau torna a implantação simples e rápida, exigindo apenas alguns passos simples:
+
+```bash
+npm install -g @nestjs/mau
+mau deploy
+```
+
+Com o Mau, você pode implantar sua aplicação em questão de segundos, permitindo que você se concentre em desenvolver recursos em vez de gerenciar infraestrutura.
+
+## 📚 Recursos Adicionais
+
+Confira alguns recursos que podem ser úteis ao trabalhar com NestJS:
+
+- Visite a [Documentação do NestJS](https://docs.nestjs.com) para aprender mais sobre o framework.
+- Para dúvidas e suporte, visite nosso [canal do Discord](https://discord.gg/G7Qnnhy).
+- Para mergulhar mais fundo e obter mais experiência prática, confira nossos cursos oficiais em vídeo em [courses.nestjs.com](https://courses.nestjs.com/).
+- Implantar sua aplicação na AWS com ajuda do [NestJS Mau](https://mau.nestjs.com) em apenas alguns cliques.
+- Visualize o gráfico da sua aplicação e interaja com a aplicação NestJS em tempo real usando [NestJS Devtools](https://devtools.nestjs.com).
+- Precisa de ajuda com seu projeto (meio período a tempo integral)? Confira nosso suporte oficial [enterprise support](https://enterprise.nestjs.com).
+- Para ficar por dentro e receber atualizações, siga-nos no [X (Twitter)](https://x.com/nestframework) e [LinkedIn](https://linkedin.com/company/nestjs).
+- Procurando por um emprego, ou tem uma vaga para oferecer? Confira nosso [quadro de empregos oficial](https://jobs.nestjs.com).
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+## 📜 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👨‍💻 Autor
+
+Desenvolvido por Marcos Vinicius

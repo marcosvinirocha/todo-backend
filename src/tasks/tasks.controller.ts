@@ -1,4 +1,12 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { AiService } from '../ai/ai.service';
 import { Task } from './entities/task.entity';
@@ -22,5 +30,20 @@ export class TasksController {
     }
 
     return savedTasks;
+  }
+
+  @Get()
+  findAll() {
+    return this.tasksService.findAll();
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body('isCompleted') isCompleted: boolean) {
+    return this.tasksService.update(+id, isCompleted);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tasksService.remove(+id);
   }
 }
