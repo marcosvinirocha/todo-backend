@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  BadRequestException,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { AiService } from '../ai/ai.service';
@@ -38,7 +39,13 @@ export class TasksController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body('isCompleted') isCompleted: boolean) {
+  async update(
+    @Param('id') id: string,
+    @Body('isCompleted') isCompleted: boolean, // O nome aqui deve bater com o JSON enviado
+  ) {
+    if (isCompleted === undefined) {
+      throw new BadRequestException('O campo isCompleted é obrigatório');
+    }
     return this.tasksService.update(+id, isCompleted);
   }
 
